@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Principal from './components/Principal/Principal';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Nosotros from './components/Principal/Nosotros';
+import Servicios from './components/Principal/Servicios';
+import Contacto from './components/Principal/Contacto';
+import NotFoundPage from './components/layout/NotFoundPage';
+import ScrollTop from './components/ayudas/ScrollTop';
 function App() {
+  
+    
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+<ScrollTop>
+    <Switch>
+        <Route exact path="/" component={Principal} />
+        <Route exact path="/Nosotros" component={Nosotros} />
+        <Route exact path="/Servicios" component={Servicios} />
+        <Route exact path="/Contactenos" component={Contacto} />
+        <Route path="/*" component={NotFoundPage} />
+    </Switch>
+</ScrollTop>
+  </Router>
+
+
+
   );
 }
 
